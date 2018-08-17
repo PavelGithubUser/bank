@@ -11,20 +11,6 @@
 </head>
 <body>
 <h1>Transfer</h1>
-<%--<form action="<c:url value='/transfer' />" method="POST">--%>
-<%--<form action="#" th:action="@{/transfer}" th:object="${transfermodel}" method="post">--%>
-    <%--From score--%>
-    <%--<input name="scorefrom" type="text" th:field="*{fromAccaunt}"/><br/>--%>
-    <%--<p>--%>
-     <%--To score--%>
-        <%--<input name="scoreto" type="text" th:field="*{toAccaunt}"/><br/>--%>
-    <%--<p>--%>
-    <%--Enter amount--%>
-    <%--<input name="amount" type="text" th:field="*{amountTransfer}"/><br/>--%>
-    <%--<p>--%>
-     <%--<input type="submit" value="Transfer"/>--%>
-<%--</form>--%>
-
 
 <form:form method="POST" modelAttribute="transfermodel">
     <spring:bind path="fromAccaunt">

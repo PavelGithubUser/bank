@@ -8,10 +8,11 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
 <h1>Transfer</h1>
-
+<div class="transferBox">
 <form:form method="POST" modelAttribute="transfermodel">
     <spring:bind path="fromAccaunt">
         <p>from <input type="text" name="fromAccaunt" id="fromAccaunt" class="field"/> <br/>
@@ -27,6 +28,7 @@
 
     <input type="submit" value="Transfer" id="submit" />
 </form:form>
+</div>
 
 </body>
 </html>

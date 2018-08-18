@@ -30,5 +30,7 @@
 </form:form>
 </div>
 
+<a href="/customerlist" methods="GET">View all customers</a>
+
 </body>
 </html>

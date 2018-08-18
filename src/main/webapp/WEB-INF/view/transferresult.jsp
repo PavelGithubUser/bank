@@ -16,6 +16,7 @@
         }
     %>
 </div>
-
+<a href="/transferpage" methods="GET">Try again</a>
+<a href="/customerlist" methods="GET">View all customers</a>
 </body>
 </html>

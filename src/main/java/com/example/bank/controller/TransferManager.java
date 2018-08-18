@@ -4,6 +4,7 @@ import com.example.bank.entity.Customer;
 import com.example.bank.model.TransferModel;
 import com.example.bank.repository.CustomerRepository;
 
+import com.example.bank.service.CustomerService;
 import com.example.bank.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,11 @@ public class TransferManager {
     @Autowired
     TransferService transferService;
 
+    @Autowired
+    CustomerService customerService;
+
     @GetMapping("/transferpage")
-    public String greetingForm(Model model) {
+    public String transferPage(Model model) {
         model.addAttribute("transfermodel", new TransferModel());
         return "transferpage";
     }
@@ -54,6 +58,12 @@ public class TransferManager {
         modelAndView.setViewName("transferresult");
         modelAndView.addObject("messages", messages);
         return modelAndView;
+    }
+
+    @GetMapping("/customerlist")
+    public String customerList(Model model) {
+        model.addAttribute("customers", customerService.getAllCustomers());
+        return "customerlist";
     }
 
 }

@@ -8,15 +8,18 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
-<div class="result">
+
+<div id="result">
     <%
         List<String> messages = (List<String>) request.getAttribute("messages");
         for (String message : messages) {
-            out.println(message + "<p>");
+            out.println("<li>" + message + "</li>");
         }
     %>
 </div>
-<a href="/transferpage" methods="GET">Try again</a>
-<a href="/customerlist" methods="GET">View all customers</a>
+<div id="refs">
+    <a href="/transferpage" methods="GET" id="refcust">Try again</a>
+    <a href="/customerlist" methods="GET" id="reftry">View all customers</a>
+</div>
 </body>
 </html>

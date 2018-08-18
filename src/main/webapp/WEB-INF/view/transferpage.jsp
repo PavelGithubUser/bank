@@ -11,8 +11,8 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 
-<div id="caption" align="center"><h1>Transfer</h1></div>
-<div class="transferBox">
+<div id="caption">Transfer</div>
+<div id="transferBox">
 <form:form method="POST" modelAttribute="transfermodel">
     <spring:bind path="fromAccaunt">
         <label>Sender's account</label> <input type="text" name="fromAccaunt" id="fromAccaunt" class="field"/> <br/><br/>
@@ -23,15 +23,15 @@
     </spring:bind>
 
     <spring:bind path="amountTransfer">
-        <label>Transfer amount</label><input type="text" name="amountTransfer" id="amountTransfer" class="field"/> <br/><br/>
+        <label>Transfer amount</label><input type="text" name="amountTransfer" id="amountTransfer" class="field"/> ₽
     </spring:bind>
 
-    <p><input type="submit" value="Transfer" id="submit" />
+    <input type="submit" value="Transfer" id="submit" />
 
 </form:form>
 </div>
-
-<div><a href="/customerlist" methods="GET">View all customers</a></div>
+<br/>
+<a href="/customerlist" methods="GET" id="refcustomers">View all customers</a>
 
 </body>
 </html>

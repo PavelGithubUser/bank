@@ -11,15 +11,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TransferModel {
 
-    @Size(min = 16, max = 16, message="incorrect size of from account")
-    @Pattern(regexp = "\\d+", message="number of from account contain incorrect symbol")
+    @NotNull(message="Field Sender's account is empty")
+    @Size(min = 16, max = 16, message="Incorrect size of Sender's account")
+    @Pattern(regexp = "\\d+", message="Number of Sender's account contain incorrect symbol")
     private String fromAccaunt;
 
-    @Size(min = 16, max = 16, message="incorrect size of to account")
-    @Pattern(regexp = "\\d+", message="number of from account contain incorrect symbol")
+    @NotNull(message="Field Rrecipient's account is empty")
+    @Size(min = 16, max = 16, message="Incorrect size of Rrecipient's account")
+    @Pattern(regexp = "\\d+", message="Number of Rrecipient's account contain incorrect symbol")
     private String toAccaunt;
 
-    @Min(value = 1, message="unacceptable amount of transfer")
+    @Min(value = 1, message="Unacceptable amount of transfer")
     private double amountTransfer;
 
     public String getFromAccaunt() {

@@ -4,12 +4,20 @@ body{
 
 .transferBox {
     border: 2px solid black;
-    padding-right: 100px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-right: 50px;
+    padding-top: 40px;
+    padding-bottom: 20px;
     margin-top: 10%;
     margin-left: 35%;
-    margin-right: 35%;
+    margin-right: 32%;
     text-align: right;
 }
 
+#caption {
+    height: 5%;
+}
+
+label {
+    float: left;
+    margin-left: 15%;
+}

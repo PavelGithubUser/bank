@@ -20,4 +20,8 @@ public class CustomerServiceImpl implements CustomerService{
         return customers;
     }
 
+    public boolean isExist(String account){
+        return customerRepository.existsByAccount(account);
+    }
+
 }

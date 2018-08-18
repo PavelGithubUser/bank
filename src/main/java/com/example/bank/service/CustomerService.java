@@ -8,4 +8,6 @@ public interface CustomerService {
 
     public List<Customer> getAllCustomers();
 
+    public boolean isExist(String account);
+
 }

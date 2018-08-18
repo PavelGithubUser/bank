@@ -9,15 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 //@Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-//    @Query(value="select * from customer where id=2", native=true)
-//    Customerrr findById();
-
-//    @Transactional
-//    @Modifying
-//    @Query("update Customer c set c.amount = :AMOUNT where c.id = :ID")
-//    public void update(@Param("ID") Long id, @Param("AMOUNT") double amount);
 
     @Query("select c from Customer c where c.account = :ACCOUNT")
     public Customer getByAccount(@Param("ACCOUNT") String account);
+
+    @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
+    boolean existsByAccount(@Param("ACCOUNT") String account);
 
 }

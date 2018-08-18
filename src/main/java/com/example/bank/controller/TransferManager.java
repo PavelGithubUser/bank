@@ -45,10 +45,15 @@ public class TransferManager {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors();
             for (Object object : bindingResult.getAllErrors()) {
-                if(object instanceof FieldError) {
+                if (object instanceof FieldError) {
                     FieldError fieldError = (FieldError) object;
                     messages.add(fieldError.getDefaultMessage());
                 }
+            }
+        } else if (!customerService.isExist(transferModel.getFromAccaunt())) {
+            messages.add("Sender's account doesn't exist");
+            if (!customerService.isExist(transferModel.getToAccaunt())){
+                messages.add("Rrecipient's account doesn't exist");
             }
         } else {
             transferService.tranfer(transferModel);

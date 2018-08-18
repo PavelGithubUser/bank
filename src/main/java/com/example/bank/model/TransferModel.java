@@ -21,8 +21,9 @@ public class TransferModel {
     @Pattern(regexp = "\\d+", message="Number of Rrecipient's account contain incorrect symbol")
     private String toAccaunt;
 
+    @NotNull(message="Amount of transfer is not filled")
     @Min(value = 1, message="Unacceptable amount of transfer")
-    private double amountTransfer;
+    private Double amountTransfer;
 
     public String getFromAccaunt() {
         return fromAccaunt;
@@ -40,11 +41,11 @@ public class TransferModel {
         this.toAccaunt = toAccaunt;
     }
 
-    public double getAmountTransfer() {
+    public Double getAmountTransfer() {
         return amountTransfer;
     }
 
-    public void setAmountTransfer(double amountTransfer) {
+    public void setAmountTransfer(Double amountTransfer) {
         this.amountTransfer = amountTransfer;
     }
 }

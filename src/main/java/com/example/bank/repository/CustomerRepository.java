@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query("select c from Customer c where c.account = :ACCOUNT")
-    public Customer getByAccount(@Param("ACCOUNT") String account);
+    Customer getByAccount(@Param("ACCOUNT") String account);
 
     @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
     boolean existsByAccount(@Param("ACCOUNT") String account);

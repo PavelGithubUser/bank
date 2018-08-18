@@ -23,7 +23,7 @@
     </spring:bind>
 
     <spring:bind path="amountTransfer">
-        <label>Transfer amount</label><input type="text" name="amountTransfer" id="amountTransfer" class="field"/> ₽
+        <label>Transfer amount</label><input type="number" name="amountTransfer" id="amountTransfer" class="field"/> ₽
     </spring:bind>
 
     <input type="submit" value="Transfer" id="submit" />

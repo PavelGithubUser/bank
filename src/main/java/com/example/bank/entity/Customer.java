@@ -1,7 +1,5 @@
 package com.example.bank.entity;
 
-
-
 import javax.persistence.*;
 
 @Entity

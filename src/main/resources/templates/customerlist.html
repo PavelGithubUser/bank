@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div id="reftran"><a href="/transferpage" methods="GET">Transfer money</a></div>
+
+<div id="tablecust">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Account</td>
+        <td>Birthday</td>
+        <td>Amount</td>
+    </tr>
+    <tr th:each="customer: ${customers}">
+        <td th:text="${customer.firstname}"/>
+        <td th:text="${customer.lastname}"/>
+        <td th:text="${customer.birthday}"/>
+        <td th:text="${customer.account}"/>
+        <td th:text="${customer.amount}"/>
+    </tr>
+</table>
+</div>
+
+</body>
+</html>

@@ -55,6 +55,8 @@ public class TransferManager {
             if (!customerService.isExist(transferModel.getToAccaunt())){
                 messages.add("Rrecipient's account doesn't exist");
             }
+        } else if (!customerService.isEnough(transferModel.getFromAccaunt(), transferModel.getAmountTransfer())){
+            messages.add("Insufficient funds in the Sender's account");
         } else {
             transferService.tranfer(transferModel);
             messages.add("Successful transfer");

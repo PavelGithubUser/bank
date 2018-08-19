@@ -13,4 +13,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
     boolean existsByAccount(@Param("ACCOUNT") String account);
 
+   @Query("SELECT CASE WHEN c.amount >= :AMOUNT THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
+    boolean isEnough(@Param("ACCOUNT") String account, @Param("AMOUNT") double amount);
+
 }

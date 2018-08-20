@@ -13,4 +13,8 @@ public interface CustomerService {
 
     boolean isEnough(String account, double amount);
 
+    public Customer gerCustomerByID (long id);
+
+    Customer getByAccount(String account);
+
 }

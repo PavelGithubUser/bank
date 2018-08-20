@@ -7,11 +7,11 @@ import com.example.bank.repository.CustomerRepository;
 import com.example.bank.service.CustomerService;
 import com.example.bank.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,21 +43,12 @@ public class TransferManager {
         List<String> messages = new ArrayList<>();
 
         if (bindingResult.hasErrors()) {
-            bindingResult.getAllErrors();
-            for (Object object : bindingResult.getAllErrors()) {
-                if (object instanceof FieldError) {
-                    FieldError fieldError = (FieldError) object;
-                    messages.add(fieldError.getDefaultMessage());
-                }
-            }
-        } else if (!customerService.isExist(transferModel.getFromAccaunt())) {
-            messages.add("Sender's account doesn't exist");
-            if (!customerService.isExist(transferModel.getToAccaunt())){
-                messages.add("Rrecipient's account doesn't exist");
-            }
-        } else if (!customerService.isEnough(transferModel.getFromAccaunt(), transferModel.getAmountTransfer())){
+            putMessageErrorToList(bindingResult, messages);
+        }
+        else if (!customerService.isEnough(transferModel.getFromAccount(), transferModel.getAmountTransfer())){
             messages.add("Insufficient funds in the Sender's account");
-        } else {
+        }
+        else {
             transferService.tranfer(transferModel);
             messages.add("Successful transfer");
         }
@@ -65,6 +56,16 @@ public class TransferManager {
         modelAndView.setViewName("transferresult");
         modelAndView.addObject("messages", messages);
         return modelAndView;
+    }
+
+    private void putMessageErrorToList(BindingResult bindingResult, List<String> messages){
+        bindingResult.getAllErrors();
+        for (Object object : bindingResult.getAllErrors()) {
+            if (object instanceof FieldError) {
+                FieldError fieldError = (FieldError) object;
+                messages.add(fieldError.getDefaultMessage());
+            }
+        }
     }
 
     @GetMapping("/customerlist")

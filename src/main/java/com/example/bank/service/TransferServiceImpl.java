@@ -15,9 +15,10 @@ public class TransferServiceImpl implements TransferService{
     @Autowired
     CustomerRepository customerRepository;
 
+    @Override
     public void tranfer(TransferModel transferModel) {
-        Customer fromCustomer = customerRepository.getByAccount(transferModel.getFromAccaunt());
-        Customer toCustomer = customerRepository.getByAccount(transferModel.getToAccaunt());
+        Customer fromCustomer = customerRepository.getByAccount(transferModel.getFromAccount());
+        Customer toCustomer = customerRepository.getByAccount(transferModel.getToAccount());
         fromCustomer.setAmount(fromCustomer.getAmount() - transferModel.getAmountTransfer());
         customerRepository.save(fromCustomer);
         toCustomer.setAmount(toCustomer.getAmount() + transferModel.getAmountTransfer());

@@ -12,10 +12,10 @@
 <div id="transferBox">
     <form th:action="@{/transferpage}" th:object="${transfermodel}" method="post">
         <label>Sender's account</label>
-        <input type="text" name="fromAccaunt" id="fromAccaunt"  class="field" th:field="*{fromAccaunt}"/> <br/><br/>
+        <input type="text" name="fromAccaunt" id="fromAccaunt"  class="field" th:field="*{fromAccount}"/> <br/><br/>
 
         <label>Rrecipient's account</label>
-        <input type="text" name="toAccaunt" id="toAccaunt" class="field" th:field="*{toAccaunt}"/> <br/><br/>
+        <input type="text" name="toAccaunt" id="toAccaunt" class="field" th:field="*{toAccount}"/> <br/><br/>
 
         <label>Transfer amount</label>
         <input type="number" name="amountTransfer" id="amountTransfer" class="field" th:field="*{amountTransfer}"/> ₽

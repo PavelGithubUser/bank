@@ -26,6 +26,7 @@ public class CustomerServiceImpl implements CustomerService{
         return customerRepository.existsByAccount(account);
     }
 
+
     @Override
     public boolean isEnough(String account, double amount){
         return customerRepository.isEnough(account, amount);

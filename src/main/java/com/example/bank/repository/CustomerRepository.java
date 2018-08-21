@@ -7,13 +7,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    @Query("select c from Customer c where c.account = :ACCOUNT")
-    Customer getByAccount(@Param("ACCOUNT") String account);
+    Customer getByAccount(String account);
 
-    @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
-    boolean existsByAccount(@Param("ACCOUNT") String account);
-
-   @Query("SELECT CASE WHEN c.amount >= :AMOUNT THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
+    @Query("SELECT CASE WHEN c.amount >= :AMOUNT THEN true ELSE false END FROM Customer c WHERE c.account = :ACCOUNT")
     boolean isEnough(@Param("ACCOUNT") String account, @Param("AMOUNT") double amount);
+
+    boolean existsByAccount(String account);
 
 }

@@ -1,13 +1,9 @@
 package com.example.bank.controller;
 
-import com.example.bank.entity.Customer;
 import com.example.bank.model.TransferModel;
-import com.example.bank.repository.CustomerRepository;
-
 import com.example.bank.service.CustomerService;
 import com.example.bank.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

@@ -1,7 +1,6 @@
 package com.example.bank.service;
 
 import com.example.bank.entity.Customer;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
